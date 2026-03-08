@@ -32,13 +32,17 @@ class LeaderController extends Controller
 
     public function storeBulk(Request $request)
     {
+        // Mencoba meningkatkan batas waktu eksekusi untuk upload banyak foto
+        @ini_set('max_execution_time', 300);
+        @ini_set('max_input_time', 300);
+
         $request->validate([
             'members.*.name' => 'required|string|max:255',
             'members.*.position' => 'required|string|max:255',
             'members.*.division' => 'nullable|string|max:255',
             'members.*.period' => 'nullable|string|max:255',
             'members.*.batch' => 'nullable|string|max:255',
-            'members.*.photo' => 'nullable|image|max:10240',
+            'members.*.photo' => 'nullable|image|max:20480', // 20MB per foto
             'members.*.order' => 'required|integer',
         ]);
 
