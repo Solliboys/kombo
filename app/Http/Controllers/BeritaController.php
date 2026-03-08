@@ -37,7 +37,7 @@ class BeritaController extends Controller
         $request->validate([
             'title' => 'required',
             'content' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:10240',
         ]);
 
         $imagePath = null;
@@ -59,13 +59,12 @@ class BeritaController extends Controller
     {
         return view('berita.form', compact('berita'));
     }
-
     public function update(Request $request, Berita $berita)
     {
         $request->validate([
             'title' => 'required',
             'content' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:10240',
         ]);
 
         if ($request->hasFile('image')) {

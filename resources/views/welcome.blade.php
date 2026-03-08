@@ -6,57 +6,50 @@
 <style>
     /* Hero Section */
     .hero { 
-        padding: 160px 10% 120px; 
+        padding: 120px 5% 80px; 
         display: grid; 
         grid-template-columns: 1fr 1fr; 
-        gap: 80px; 
+        gap: 40px; 
         align-items: center; 
-        background: radial-gradient(circle at top right, rgba(79, 70, 229, 0.08), transparent 45%),
-                    radial-gradient(circle at center left, rgba(79, 70, 229, 0.05), transparent 30%);
+        background: radial-gradient(circle at top right, rgba(79, 70, 229, 0.08), transparent 45%);
     }
     .hero-content { animation: fadeInUp 0.8s ease-out; }
-    .hero-content h1 { font-size: 4.8rem; line-height: 1.05; font-weight: 800; letter-spacing: -3.5px; margin-bottom: 24px; color: var(--text-dark); }
-    .hero-content h1 span { color: #4f46e5; position: relative; }
-    .hero-content p { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 48px; max-width: 540px; line-height: 1.7; font-weight: 500; }
+    .hero-content h1 { font-size: clamp(2.5rem, 8vw, 4.8rem); line-height: 1.1; font-weight: 800; letter-spacing: -2px; margin-bottom: 24px; color: var(--text-dark); }
+    .hero-content h1 span { color: #4f46e5; }
+    .hero-content p { font-size: clamp(1rem, 2vw, 1.25rem); color: var(--text-muted); margin-bottom: 40px; max-width: 540px; line-height: 1.7; }
     
     .hero-image { position: relative; animation: float 6s ease-in-out infinite; }
-    .hero-image img { width: 100%; max-width: 500px; filter: drop-shadow(0 40px 80px rgba(79, 70, 229, 0.15)); }
+    .hero-image img { width: 100%; max-width: 500px; height: auto; filter: drop-shadow(0 40px 80px rgba(79, 70, 229, 0.15)); }
 
-    /* Modern Stats Section */
-    .stats-section { padding: 0 10% 80px; margin-top: -60px; position: relative; z-index: 10; }
-    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .stat-card { background: white; padding: 48px 30px; border-radius: 48px; border: 1px solid rgba(0,0,0,0.03); text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.02); transition: all 0.3s; }
-    .stat-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(79, 70, 229, 0.08); }
-    .stat-card h3 { font-size: 3.5rem; font-weight: 800; color: #4f46e5; margin-bottom: 8px; letter-spacing: -2px; }
-    .stat-card p { font-weight: 800; color: var(--text-muted); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; }
+    /* Stats Section */
+    .stats-section { padding: 0 5% 60px; margin-top: -40px; position: relative; z-index: 10; }
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .stat-card { background: white; padding: 30px 20px; border-radius: 32px; border: 1px solid rgba(0,0,0,0.03); text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.02); transition: all 0.3s; }
+    .stat-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(79, 70, 229, 0.08); }
+    .stat-card h3 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; color: #4f46e5; margin-bottom: 4px; letter-spacing: -1px; }
+    .stat-card p { font-weight: 700; color: var(--text-muted); text-transform: uppercase; font-size: 0.65rem; letter-spacing: 1px; }
 
-    /* About Section UI Overhaul */
-    .about-section { padding: 120px 10%; background: #ffffff; position: relative; }
-    .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 100px; align-items: start; }
+    /* About Section */
+    .about-section { padding: 80px 5%; background: #ffffff; }
+    .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; }
+    .about-content h2 { font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 800; letter-spacing: -1.5px; line-height: 1.2; margin-bottom: 24px; }
+    .about-text { font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 40px; text-align: justify; }
     
-    .about-content h2 { font-size: 3.5rem; font-weight: 800; color: var(--text-dark); letter-spacing: -2.5px; line-height: 1.1; margin-bottom: 32px; }
-    .about-content h2 span { color: #4f46e5; }
-    .about-text { font-size: 1.2rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 48px; text-align: justify; font-weight: 400; }
-    
-    .philo-box { display: grid; gap: 24px; }
-    .philo-item { background: #fbfcfe; border-radius: 40px; padding: 40px; border: 1px solid #f1f5f9; transition: all 0.3s; }
+    .philo-box { display: grid; gap: 20px; }
+    .philo-item { background: #fbfcfe; border-radius: 32px; padding: 30px; border: 1px solid #f1f5f9; }
     .philo-item:hover { background: white; border-color: #4f46e5; box-shadow: 0 15px 30px rgba(79, 70, 229, 0.05); transform: translateX(10px); }
     .philo-icon { font-size: 2.5rem; margin-bottom: 24px; display: block; }
     .philo-item h4 { font-size: 1.5rem; font-weight: 800; color: var(--text-dark); margin-bottom: 12px; }
     .philo-item p { font-size: 1rem; color: var(--text-muted); line-height: 1.7; }
 
     /* Vision Mission Dark UI */
-    .vm-section { padding: 40px 5% 120px; }
-    .vm-card { background: #0f172a; border-radius: 80px; padding: 100px 8%; color: white; position: relative; overflow: hidden; box-shadow: 0 40px 80px rgba(15, 23, 42, 0.2); }
-    .vm-card::before { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: rgba(79, 70, 229, 0.15); border-radius: 50%; filter: blur(100px); }
-    .vm-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+    /* Vision Mission */
+    .vm-section { padding: 40px 5% 80px; }
+    .vm-card { background: #0f172a; border-radius: 40px; padding: 60px 5%; color: white; position: relative; overflow: hidden; }
+    .vm-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
     
-    .vm-label { font-size: 0.8rem; font-weight: 800; color: #6366f1; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 24px; display: block; }
-    .v-text { font-size: 2.5rem; font-weight: 800; line-height: 1.2; letter-spacing: -1.5px; margin-bottom: 40px; }
-    .m-list { display: grid; gap: 32px; }
-    .m-item { display: flex; gap: 24px; align-items: flex-start; }
-    .m-num { width: 48px; height: 48px; background: rgba(99, 102, 241, 0.2); border-radius: 16px; border: 1px solid rgba(99, 102, 241, 0.3); display: flex; align-items: center; justify-content: center; font-weight: 800; color: #818cf8; flex-shrink: 0; }
-    .m-item p { font-size: 1.15rem; color: #94a3b8; line-height: 1.6; }
+    .v-text { font-size: clamp(1.5rem, 5vw, 2.5rem); font-weight: 800; line-height: 1.2; margin-bottom: 30px; }
+    .m-item p { font-size: 1rem; color: #94a3b8; line-height: 1.6; }
 
     /* FAQ */
     .faq-section { padding: 120px 10%; background: #fbfcfe; }
@@ -69,16 +62,42 @@
     @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0); } }
 
-    @media (max-width: 1200px) {
-        .hero { grid-template-columns: 1fr; text-align: center; padding: 140px 5% 80px; }
-        .hero-content h1 { font-size: 3.5rem; letter-spacing: -2px; }
-        .hero-content p { margin: 0 auto 40px; }
-        .hero-btns { justify-content: center; }
-        .hero-image { order: -1; margin-bottom: 40px; }
+    /* Global Responsiveness Fix */
+    * { box-sizing: border-box; }
+    html, body { overflow-x: hidden; width: 100%; position: relative; }
+
+    /* Media Queries */
+    @media (max-width: 1024px) {
+        .hero { grid-template-columns: 1fr; text-align: center; padding: 120px 5% 60px; }
+        .hero-btns { justify-content: center; flex-direction: column; width: 100%; max-width: 400px; margin: 0 auto; }
+        .hero-image { order: -1; }
+        .hero-image img { max-width: 250px; }
+        
         .stats-grid { grid-template-columns: 1fr; }
-        .about-grid { grid-template-columns: 1fr; gap: 60px; }
-        .vm-inner { grid-template-columns: 1fr; gap: 60px; }
-        .vm-card { border-radius: 40px; padding: 60px 8%; }
+        .about-grid { grid-template-columns: 1fr; gap: 40px; }
+        .philo-box { grid-template-columns: 1fr; }
+        .vm-inner { grid-template-columns: 1fr; gap: 40px; }
+        
+        .contact-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+        .contact-map { height: 350px !important; order: 1; transform: rotate(0deg) !important; border-radius: 30px !important; width: 100% !important; }
+    }
+
+    @media (max-width: 768px) {
+        .section { padding: 60px 20px; }
+        .hero { padding: 100px 20px 40px !important; }
+        .hero-content h1 { font-size: 2.2rem !important; }
+        .hero-content p { font-size: 1rem !important; }
+        
+        .stats-grid, .about-grid, .vm-inner, .news-grid, .contact-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 24px !important;
+            width: 100% !important;
+        }
+        
+        .stat-card, .card, .philo-item { width: 100% !important; flex: 0 1 auto !important; }
+        .section-title h2 { font-size: 2rem !important; }
+        .section-title p { font-size: 1rem !important; }
     }
 </style>
 @endsection
@@ -87,7 +106,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <div style="display:inline-block; padding: 10px 20px; background: rgba(79, 70, 229, 0.05); color: #4f46e5; border-radius: 99px; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 24px;">Bondowoso Synergy Platform</div>
+            <div style="display:inline-block; padding: 10px 20px; background: rgba(79, 70, 229, 0.05); color: #4f46e5; border-radius: 99px; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 24px;">Bendebhesah Jaya</div>
             <h1>{!! str_replace('Bondowoso', '<span>Bondowoso</span>', $profile->slogan ?? 'Bersatu Untuk Bondowoso Bangkit') !!}</h1>
             <p>{{ $profile->vision ?? 'Menjadi wadah sinergi mahasiswa Bondowoso di Polije untuk membangun daerah melalui karya nyata dan intelektualitas.' }}</p>
             <div class="hero-btns" style="display: flex; gap: 20px;">
@@ -198,7 +217,7 @@
             <p>Berita kegiatan terupdate sebagai bentuk transparansi aksi kami.</p>
         </div>
         
-        <div style="display: flex; flex-wrap: wrap; gap: 32px; max-width: 1240px; margin: 0 auto; justify-content: center; padding: 0 20px;">
+        <div class="news-grid" style="display: flex; flex-wrap: wrap; gap: 32px; max-width: 1240px; margin: 0 auto; justify-content: center; padding: 0 20px;">
             @forelse($beritas as $berita)
                 <div class="card" style="flex: 0 1 380px; width: 100%; border-radius: 40px; padding: 16px; background: white; border: 1px solid rgba(0,0,0,0.03);">
                     <div style="aspect-ratio: 16/10; overflow: hidden; border-radius: 30px;">
@@ -264,10 +283,9 @@
         </div>
     </section>
 
-    <!-- Map & Contact -->
     <section class="section" style="background: white;">
-        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.12fr; gap: 100px; align-items: center; padding-bottom: 100px;">
-            <div style="height: 520px; border-radius: 60px; overflow: hidden; border: 12px solid #f8fafc; box-shadow: 0 40px 80px rgba(0,0,0,0.06); transform: rotate(-1deg);">
+        <div class="contact-grid" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.12fr; align-items: center;">
+            <div class="contact-map" style="height: 520px; border-radius: 60px; overflow: hidden; border: 12px solid #f8fafc; box-shadow: 0 40px 80px rgba(0,0,0,0.06); transform: rotate(-1deg);">
                 @if($profile && $profile->map_iframe)
                     {!! $profile->map_iframe !!}
                 @else

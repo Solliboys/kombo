@@ -133,15 +133,21 @@
         .mobile-toggle:hover { background: rgba(0,0,0,0.05); }
 
         @media (max-width: 1024px) {
+            body { padding-top: 100px; }
             .nav-links, .auth-btns { display: none !important; }
             .mobile-toggle { display: flex; align-items: center; justify-content: center; }
-            header { width: 95% !important; padding: 0 20px !important; height: 75px !important; }
-            header .logo img { height: 45px !important; }
-            header .logo span { font-size: 1.3rem !important; }
+            header { 
+                width: 92% !important; 
+                padding: 0 20px !important; 
+                height: 65px !important; 
+                top: 15px !important;
+            }
+            header .logo img { height: 35px !important; }
+            header .logo span { font-size: 1.1rem !important; }
             .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-            .section { padding: 80px 5% 60px; }
-            .section-title h2 { font-size: 2.25rem; }
-            .mobile-menu { top: 110px; }
+            .section { padding: 60px 20px 40px; }
+            .section-title h2 { font-size: 2rem; letter-spacing: -1px; }
+            .mobile-menu { top: 90px; width: 92%; left: 4%; }
         }
     </style>
     @yield('styles')

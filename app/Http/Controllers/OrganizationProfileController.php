@@ -27,7 +27,7 @@ class OrganizationProfileController extends Controller
             'map_iframe' => 'nullable|string',
             'contact_phone' => 'nullable|string|max:20',
             'contact_email' => 'nullable|email|max:255',
-            'hero_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'hero_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
             'footer_description' => 'nullable|string|max:500',
             'instagram_url' => 'nullable|url',
             'youtube_url' => 'nullable|url',

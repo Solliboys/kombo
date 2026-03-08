@@ -38,7 +38,7 @@ class LeaderController extends Controller
             'members.*.division' => 'nullable|string|max:255',
             'members.*.period' => 'nullable|string|max:255',
             'members.*.batch' => 'nullable|string|max:255',
-            'members.*.photo' => 'nullable|image|max:2048',
+            'members.*.photo' => 'nullable|image|max:10240',
             'members.*.order' => 'required|integer',
         ]);
 
@@ -67,7 +67,7 @@ class LeaderController extends Controller
             'division' => 'nullable|string|max:255',
             'period' => 'nullable|string|max:255',
             'batch' => 'nullable|string|max:255',
-            'photo' => 'nullable|image|max:2048',
+            'photo' => 'nullable|image|max:10240',
             'order' => 'required|integer',
         ]);
 
@@ -93,7 +93,7 @@ class LeaderController extends Controller
             'division' => 'nullable|string|max:255',
             'period' => 'nullable|string|max:255',
             'batch' => 'nullable|string|max:255',
-            'photo' => 'nullable|image|max:2048',
+            'photo' => 'nullable|image|max:10240',
             'order' => 'required|integer',
             'is_active' => 'boolean'
         ]);
