@@ -8,7 +8,13 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www
 COPY . /var/www
 
-# TAMBAH TRIK INI: --ignore-platform-reqs
-RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs
+# TAMBAHKAN INI: Salin file env example jadi env beneran agar Laravel tidak error
+RUN cp .env.example .env
+
+# Jalankan instalasi tanpa mengeksekusi script Laravel dulu
+RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs --no-scripts
+
+# Baru jalankan discover setelah semua aman
+RUN php artisan package:discover --ansi
 
 CMD php artisan serve --host=0.0.0.0 --port=80
