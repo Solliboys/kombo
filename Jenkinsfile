@@ -4,24 +4,25 @@ pipeline {
         APP_NAME = "laravel-jafar"
     }
     stages {
-        stage('1. Checkout Code') {
+        stage('1. Checkout') {
             steps {
-                echo 'Mengambil kode terbaru dari GitHub...'
                 checkout scm
             }
         }
-         stage('2. Build Docker Image') {
+        stage('2. Build') {
             steps {
-                echo 'Membangun Docker Image Laravel...'
                 sh 'docker build -t ${APP_NAME}:latest .'
             }
         }
-        stage('3. Deploy Ke Port 8000') {
+        stage('3. Deploy') {
             steps {
-                echo 'Menjalankan Container Laravel...'
+                echo 'Menghapus container lama jika ada...'
                 sh 'docker stop ${APP_NAME} || true && docker rm ${APP_NAME} || true'
-                sh 'docker run -d --name ${APP_NAME} -p 8000:80 ${APP_NAME}:latest'
-                echo 'Selesai! Buka di Windows: http://localhost:8000'
+
+                echo 'Menjalankan container baru di Port 8000...'
+                // Jalankan di background (-d) dan sambungkan ke network jenkins 
+                // agar koneksi database mysql (laravel_db) aman
+                sh 'docker run -d --name ${APP_NAME} --network jenkins -p 8000:80 ${APP_NAME}:latest'
             }
         }
     }
