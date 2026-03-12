@@ -8,9 +8,15 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www
 COPY . /var/www
 
-RUN cp .env.example .env
+# Salin env dan buat file database kosong agar tidak crash
+RUN cp .env.example .env &&     mkdir -p database &&     touch database/database.sqlite
 
-RUN composer install --no-interaction --no-plugins --no-scripts --prefer-dist
-RUN chmod -R 777 storage bootstrap/cache
+RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs
 
-CMD php artisan key:generate && php artisan serve --host=0.0.0.0 --port=80
+# Generate key agar aman
+RUN php artisan key:generate
+
+# Beri izin akses folder dan file database
+RUN chmod -R 777 storage bootstrap/cache database
+
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=80"]
