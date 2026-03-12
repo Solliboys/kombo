@@ -107,16 +107,17 @@
     <section class="hero">
         <div class="hero-content">
             <div style="display:inline-block; padding: 10px 20px; background: rgba(79, 70, 229, 0.05); color: #4f46e5; border-radius: 99px; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 24px;">Bendebhesah Jaya</div>
-            <h1>{!! str_replace('Bondowoso', '<span>Bondowoso</span>', $profile->slogan ?? 'Bersatu Untuk Bondowoso Bangkit') !!}</h1>
-            <p>{{ $profile->vision ?? 'Menjadi wadah sinergi mahasiswa Bondowoso di Polije untuk membangun daerah melalui karya nyata dan intelektualitas.' }}</p>
+            <h1>{!! str_replace('Bondowoso', '<span>Bondowoso</span>', $profile?->slogan ?? 'Bersatu Untuk Bondowoso Bangkit') !!}</h1>
+            <p>{{ $profile?->vision ?? 'Menjadi wadah sinergi mahasiswa Bondowoso di Polije untuk membangun daerah melalui karya nyata dan intelektualitas.' }}</p>
             <div class="hero-btns" style="display: flex; gap: 20px;">
                 <a href="#tentang" class="btn btn-primary" style="background: #4f46e5; box-shadow: 0 10px 30px rgba(79, 70, 229, 0.2);">Kenalan Lebih Dekat <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 13l-7 7-7-7"/></svg></a>
                 <a href="{{ route('pages.structure') }}" class="btn btn-outline" style="border-radius: 99px; font-weight: 800;">Lihat Kabinet</a>
             </div>
         </div>
         <div class="hero-image">
-            <img src="{{ $profile->hero_image ? asset('storage/' . $profile->hero_image) : asset('assets/img/logo-kombo.png') }}" alt="KOMBO Logo">
-        </div>
+<img src="{{ $profile?->hero_image ? asset('storage/' . $profile?->hero_image) : asset('assets/img/logo-kombo.png') }}" alt="KOMBO Logo">
+            
+</div>
     </section>
 
     <!-- Stats -->
@@ -150,13 +151,13 @@
                 <span style="font-weight: 800; color: #4f46e5; text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; display: block; margin-bottom: 16px;">Since the Beginning</span>
                 <h2>Eksistensi & <span>Jejak Sejarah</span> KOMBO</h2>
                 <div class="about-text">
-                    {!! nl2br(e($profile->history)) !!}
+                    {!! nl2br(e($profile?->history)) !!}
                 </div>
                 
                 <div style="padding: 40px; background: #fbfcfe; border-radius: 40px; border: 2px solid #f1f5f9; position: relative; overflow: hidden;">
                     <div style="position: absolute; top: -10px; right: -10px; font-size: 8rem; opacity: 0.03; font-weight: 900; color: #4f46e5;">KOMBO</div>
                     <h5 style="font-size: 1.1rem; font-weight: 800; color: var(--text-dark); margin-bottom: 12px; position: relative;">Filosofi Kami</h5>
-                    <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.7; position: relative; font-style: italic;">"{{ $profile->philosophy ?? 'Sebuah wadah yang lahir dari kerinduan mahasiswa akan kampung halaman, untuk berkontribusi bagi Bondowoso.' }}"</p>
+                    <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.7; position: relative; font-style: italic;">"{{ $profile?->philosophy ?? 'Sebuah wadah yang lahir dari kerinduan mahasiswa akan kampung halaman, untuk berkontribusi bagi Bondowoso.' }}"</p>
                 </div>
             </div>
 
@@ -182,7 +183,7 @@
                 <div>
                     <span class="vm-label">Our Vision</span>
                     <div class="v-text">
-                        "{{ $profile->vision ?? 'Menjadi wadah mahasiswa Bondowoso terbaik yang memberikan dampak nyata.' }}"
+                        "{{ $profile?->vision ?? 'Menjadi wadah mahasiswa Bondowoso terbaik yang memberikan dampak nyata.' }}"
                     </div>
                     <div style="display: flex; gap: 20px; align-items: center; margin-top: 50px;">
                         <div style="width: 60px; height: 3px; background: #4f46e5;"></div>
@@ -193,7 +194,7 @@
                     <span class="vm-label">Our Mission</span>
                     <div class="m-list">
                         @php
-                            $missions = explode("\n", $profile->mission);
+                            $missions = explode("\n", $profile?->mission);
                         @endphp
                         @foreach($missions as $index => $mission)
                             @if(trim($mission) != "")
@@ -286,8 +287,8 @@
     <section class="section" style="background: white;">
         <div class="contact-grid" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.12fr; align-items: center;">
             <div class="contact-map" style="height: 520px; border-radius: 60px; overflow: hidden; border: 12px solid #f8fafc; box-shadow: 0 40px 80px rgba(0,0,0,0.06); transform: rotate(-1deg);">
-                @if($profile && $profile->map_iframe)
-                    {!! $profile->map_iframe !!}
+                @if($profile && $profile?->map_iframe)
+                    {!! $profile?->map_iframe !!}
                 @else
                     <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #f1f5f9; color: #94a3b8; font-weight: 800;">Google Maps tidak tersedia</div>
                 @endif
@@ -302,14 +303,14 @@
                         <div style="width: 56px; height: 56px; background: rgba(79, 70, 229, 0.1); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #4f46e5; font-size: 1.5rem;">📞</div>
                         <div>
                             <div style="font-weight: 800; font-size: 0.7rem; text-transform: uppercase; color: #94a3b8; letter-spacing: 1px;">Hotline Center</div>
-                            <div style="font-weight: 800; font-size: 1.2rem; color: var(--text-dark);">{{ $profile->contact_phone ?? '-' }}</div>
+                            <div style="font-weight: 800; font-size: 1.2rem; color: var(--text-dark);">{{ $profile?->contact_phone ?? '-' }}</div>
                         </div>
                     </div>
                     <div style="display: flex; gap: 24px; align-items: center; background: #fbfcfe; padding: 28px; border-radius: 32px; border: 1px solid #f1f5f9;">
                         <div style="width: 56px; height: 56px; background: rgba(79, 70, 229, 0.1); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #4f46e5; font-size: 1.5rem;">✉️</div>
                         <div>
                             <div style="font-weight: 800; font-size: 0.7rem; text-transform: uppercase; color: #94a3b8; letter-spacing: 1px;">Official Email</div>
-                            <div style="font-weight: 800; font-size: 1.2rem; color: var(--text-dark);">{{ $profile->contact_email ?? '-' }}</div>
+                            <div style="font-weight: 800; font-size: 1.2rem; color: var(--text-dark);">{{ $profile?->contact_email ?? '-' }}</div>
                         </div>
                     </div>
                 </div>
