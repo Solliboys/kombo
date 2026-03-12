@@ -13,5 +13,4 @@ RUN cp .env.example .env &&     mkdir -p database &&     touch database/database
 RUN composer install --no-interaction --no-plugins --no-scripts --prefer-dist --ignore-platform-reqs
 RUN chmod -R 777 storage bootstrap/cache database
 
-# LANGKAH SAKTI: Generate key dan jalankan server
 CMD php artisan key:generate && php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=80
