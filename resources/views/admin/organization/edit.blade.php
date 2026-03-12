@@ -23,30 +23,30 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
                             <label class="block text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-3">Nama Organisasi</label>
-                            <input type="text" name="name" value="{{ old('name', $profile->name) }}"
+                            <input type="text" name="name" value="{{ old('name', $profile?->name) }}"
                                    class="w-full px-6 py-4 rounded-2xl border-2 border-slate-50 bg-slate-50 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all font-bold text-slate-700">
                         </div>
                         <div>
                             <label class="block text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-3">Slogan / Tagline</label>
-                            <input type="text" name="slogan" value="{{ old('slogan', $profile->slogan) }}"
+                            <input type="text" name="slogan" value="{{ old('slogan', $profile?->slogan) }}"
                                    class="w-full px-6 py-4 rounded-2xl border-2 border-slate-50 bg-slate-50 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all font-bold text-slate-700">
                         </div>
                     </div>
 
                     <div>
                         <label class="block text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-3">Sejarah Singkat Organisasi</label>
-                        <textarea name="history" rows="4" class="w-full px-6 py-4 rounded-2xl border-2 border-slate-50 bg-slate-50 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all font-bold text-slate-700 leading-relaxed">{{ old('history', $profile->history) }}</textarea>
+                        <textarea name="history" rows="4" class="w-full px-6 py-4 rounded-2xl border-2 border-slate-50 bg-slate-50 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all font-bold text-slate-700 leading-relaxed">{{ old('history', $profile?->history) }}</textarea>
                     </div>
 
                     <div>
                         <label class="block text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-3">Filosofi Nama/Logo</label>
-                        <textarea name="philosophy" rows="3" class="w-full px-6 py-4 rounded-2xl border-2 border-slate-50 bg-slate-50 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all font-bold text-slate-700 leading-relaxed">{{ old('philosophy', $profile->philosophy) }}</textarea>
+                        <textarea name="philosophy" rows="3" class="w-full px-6 py-4 rounded-2xl border-2 border-slate-50 bg-slate-50 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all font-bold text-slate-700 leading-relaxed">{{ old('philosophy', $profile?->philosophy) }}</textarea>
                     </div>
 
                     <div class="p-8 bg-slate-50 rounded-[32px] border-2 border-dashed border-slate-200">
                         <label class="block text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-4">Hero Image / Logo Besar</label>
-                        @if($profile->hero_image)
-                            <img src="{{ asset('storage/' . $profile->hero_image) }}" class="w-20 h-20 rounded-2xl object-cover mb-4">
+                        @if($profile?->hero_image)
+                            <img src="{{ asset('storage/' . $profile?->hero_image) }}" class="w-20 h-20 rounded-2xl object-cover mb-4">
                         @endif
                         <input type="file" name="hero_image" class="block w-full text-sm text-slate-500 file:mr-4 file:py-3 file:px-6 file:rounded-xl file:border-0 file:text-xs file:font-extrabold file:bg-blue-600 file:text-white hover:file:bg-blue-700 cursor-pointer">
                     </div>
@@ -54,11 +54,11 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
                             <label class="block text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-3">Visi Utama</label>
-                            <textarea name="vision" rows="3" class="w-full px-6 py-4 rounded-2xl border-2 border-slate-50 bg-slate-50 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all font-bold text-slate-700">{{ old('vision', $profile->vision) }}</textarea>
+                            <textarea name="vision" rows="3" class="w-full px-6 py-4 rounded-2xl border-2 border-slate-50 bg-slate-50 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all font-bold text-slate-700">{{ old('vision', $profile?->vision) }}</textarea>
                         </div>
                         <div>
                             <label class="block text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-3">Misi (Satu baris per poin)</label>
-                            <textarea name="mission" rows="3" class="w-full px-6 py-4 rounded-2xl border-2 border-slate-50 bg-slate-50 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all font-bold text-slate-700 leading-relaxed">{{ old('mission', $profile->mission) }}</textarea>
+                            <textarea name="mission" rows="3" class="w-full px-6 py-4 rounded-2xl border-2 border-slate-50 bg-slate-50 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all font-bold text-slate-700 leading-relaxed">{{ old('mission', $profile?->mission) }}</textarea>
                         </div>
                     </div>
 
@@ -70,22 +70,22 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div>
                                 <label class="block text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-3">WhatsApp / Telepon</label>
-                                <input type="text" name="contact_phone" value="{{ old('contact_phone', $profile->contact_phone) }}" placeholder="0812..."
+                                <input type="text" name="contact_phone" value="{{ old('contact_phone', $profile?->contact_phone) }}" placeholder="0812..."
                                        class="w-full px-6 py-4 rounded-2xl border-2 border-slate-50 bg-slate-50 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all font-bold text-slate-700">
                             </div>
                             <div>
                                 <label class="block text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-3">Email Resmi</label>
-                                <input type="email" name="contact_email" value="{{ old('contact_email', $profile->contact_email) }}" placeholder="email@kombo.org"
+                                <input type="email" name="contact_email" value="{{ old('contact_email', $profile?->contact_email) }}" placeholder="email@kombo.org"
                                        class="w-full px-6 py-4 rounded-2xl border-2 border-slate-50 bg-slate-50 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all font-bold text-slate-700">
                             </div>
                             <div>
                                 <label class="block text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-3">Link Instagram (URL)</label>
-                                <input type="url" name="instagram_url" value="{{ old('instagram_url', $profile->instagram_url) }}" placeholder="https://instagram.com/..."
+                                <input type="url" name="instagram_url" value="{{ old('instagram_url', $profile?->instagram_url) }}" placeholder="https://instagram.com/..."
                                        class="w-full px-6 py-4 rounded-2xl border-2 border-slate-50 bg-slate-50 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all font-bold text-slate-700">
                             </div>
                             <div>
                                 <label class="block text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-3">Link YouTube (URL)</label>
-                                <input type="url" name="youtube_url" value="{{ old('youtube_url', $profile->youtube_url) }}" placeholder="https://youtube.com/..."
+                                <input type="url" name="youtube_url" value="{{ old('youtube_url', $profile?->youtube_url) }}" placeholder="https://youtube.com/..."
                                        class="w-full px-6 py-4 rounded-2xl border-2 border-slate-50 bg-slate-50 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all font-bold text-slate-700">
                             </div>
                         </div>
@@ -99,7 +99,7 @@
                         <div>
                             <label class="block text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-3">Deskripsi Singkat di Footer</label>
                             <textarea name="footer_description" rows="3" placeholder="Platform kolaborasi digital mahasiswa Bondowoso..."
-                                      class="w-full px-6 py-4 rounded-2xl border-2 border-slate-50 bg-slate-50 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all font-bold text-slate-700 leading-relaxed">{{ old('footer_description', $profile->footer_description) }}</textarea>
+                                      class="w-full px-6 py-4 rounded-2xl border-2 border-slate-50 bg-slate-50 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all font-bold text-slate-700 leading-relaxed">{{ old('footer_description', $profile?->footer_description) }}</textarea>
                             <p class="text-[10px] text-slate-400 mt-2 font-medium">Kalimat pendek yang muncul di bawah logo KOMBO pada bagian paling bawah web.</p>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                         </h4>
                         <label class="block text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-3">Embed Kode Google Maps (iFrame)</label>
                         <textarea name="map_iframe" rows="3" placeholder='<iframe src="..." ...></iframe>'
-                                  class="w-full px-6 py-4 rounded-2xl border-2 border-slate-50 bg-slate-50 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all font-mono text-xs text-slate-600">{{ old('map_iframe', $profile->map_iframe) }}</textarea>
+                                  class="w-full px-6 py-4 rounded-2xl border-2 border-slate-50 bg-slate-50 focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all font-mono text-xs text-slate-600">{{ old('map_iframe', $profile?->map_iframe) }}</textarea>
                         <p class="text-[10px] text-slate-400 mt-2 font-medium">Buka Google Maps > Share > Embed a map > Copy HTML.</p>
                     </div>
 

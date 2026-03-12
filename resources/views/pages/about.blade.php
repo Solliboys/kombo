@@ -60,11 +60,11 @@
         <div class="story-content">
             <h2>Perjalanan <span>Sejarah</span> Kami</h2>
             <div class="story-text">
-                {!! nl2br(e($profile->history)) !!}
+                {!! nl2br(e($profile?->history)) !!}
             </div>
             <div style="margin-top: 48px; padding: 40px; background: white; border-radius: 40px; border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
                 <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 16px; color: var(--text-dark);">Filosofi Nama <span>KOMBO</span></h3>
-                <p style="color: var(--text-muted); line-height: 1.8;">{{ $profile->philosophy ?? 'Filosofi yang menggabungkan semangat kebersamaan mahasiswa Bondowoso di Politeknik Negeri Jember.' }}</p>
+                <p style="color: var(--text-muted); line-height: 1.8;">{{ $profile?->philosophy ?? 'Filosofi yang menggabungkan semangat kebersamaan mahasiswa Bondowoso di Politeknik Negeri Jember.' }}</p>
             </div>
         </div>
         <div class="philosophies">
@@ -92,7 +92,7 @@
             <div>
                 <div class="vm-title">Visi Organisasi</div>
                 <div class="vision-text">
-                    "{{ $profile->vision ?? 'Menjadi wadah kolaborasi mahasiswa terbaik dan paling berdampak.' }}"
+                    "{{ $profile?->vision ?? 'Menjadi wadah kolaborasi mahasiswa terbaik dan paling berdampak.' }}"
                 </div>
                 <div style="margin-top: 40px; display: flex; gap: 20px;">
                     <div style="padding: 20px; background: rgba(59, 130, 246, 0.1); border-radius: 24px; text-align: center; flex: 1;">
@@ -109,7 +109,7 @@
                 <div class="vm-title">Misi Strategis</div>
                 <div class="mision-list">
                     @php
-                        $missions = explode("\n", $profile->mission);
+                        $missions = explode("\n", $profile?->mission);
                     @endphp
                     @foreach($missions as $index => $mission)
                         @if(trim($mission) != "")
